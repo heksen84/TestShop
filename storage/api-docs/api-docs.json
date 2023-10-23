@@ -122,58 +122,6 @@
                                         "description": "id упражнения",
                                         "type": "number",
                                         "default": 1
-                                    },
-                                    "name": {
-                                        "description": "Название тренировки",
-                                        "type": "string",
-                                        "default": "Упражнение на бицепс"
-                                    },
-                                    "description": {
-                                        "description": "описание",
-                                        "type": "string",
-                                        "default": null
-                                    },
-                                    "video_male": {
-                                        "description": "Видео М",
-                                        "type": "file"
-                                    },
-                                    "video_male_profile": {
-                                        "description": "Видео М (профиль)",
-                                        "type": "file"
-                                    },
-                                    "video_male_full_face": {
-                                        "description": "Видео М (анфас)",
-                                        "type": "file"
-                                    },
-                                    "video_female": {
-                                        "description": "Видео Ж",
-                                        "type": "file"
-                                    },
-                                    "video_female_profile": {
-                                        "description": "Видео Ж (профиль)",
-                                        "type": "file"
-                                    },
-                                    "video_female_full_face": {
-                                        "description": "Видео Ж (анфас)",
-                                        "type": "file"
-                                    },
-                                    "muscle_groups": {
-                                        "description": "Группы мышц",
-                                        "type": "array",
-                                        "items": {
-                                            "type": "integer",
-                                            "format": "int64",
-                                            "example": 1
-                                        }
-                                    },
-                                    "inventory": {
-                                        "description": "Инвентарь",
-                                        "type": "array",
-                                        "items": {
-                                            "type": "integer",
-                                            "format": "int64",
-                                            "example": 1
-                                        }
                                     }
                                 },
                                 "type": "object"

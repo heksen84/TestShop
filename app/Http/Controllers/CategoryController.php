@@ -97,70 +97,7 @@ class CategoryController extends Controller
      *                      property="id",
      *                      type="number",
      *			            default=1
-     *                 ),
-     *                 @OA\Property(
-     *                      description="Название тренировки",
-     *                      property="name",
-     *                      type="string",
-     *			            default="Упражнение на бицепс"
-     *                 ),
-     *                 @OA\Property(
-     *                      description="описание",
-     *                      property="description",
-     *                      type="string",
-     *			            default=null
-     *                 ),
-     *                 @OA\Property(
-     *                      description="Видео М",
-     *                      property="video_male",
-     *                      type="file",
-     *                 ),
-     *                 @OA\Property(
-     *                      description="Видео М (профиль)",
-     *                      property="video_male_profile",
-     *                      type="file",
-     *                 ),
-     *                 @OA\Property(
-     *                      description="Видео М (анфас)",
-     *                      property="video_male_full_face",
-     *                      type="file",
-     *                 ),
-     *                 @OA\Property(
-     *                      description="Видео Ж",
-     *                      property="video_female",
-     *                      type="file",
-     *                 ),
-     *                 @OA\Property(
-     *                      description="Видео Ж (профиль)",
-     *                      property="video_female_profile",
-     *                      type="file",
-     *                 ),
-     *                 @OA\Property(
-     *                      description="Видео Ж (анфас)",
-     *                      property="video_female_full_face",
-     *                      type="file",
-     *                 ),
-     *               @OA\Property(
-     *                   property="muscle_groups",
-     *                   description="Инвентарь",
-     *                   description="Группы мышц",
-     *                   type="array",
-     *                   @OA\Items(
-     *                      type="integer",
-     *                      format="int64",
-     *                      example=1,
-     *                   ),
-     *               ), 
-     *               @OA\Property(
-     *                   property="inventory",
-     *                   description="Инвентарь",
-     *                   type="array",
-     *                   @OA\Items(
-     *                      type="integer",
-     *                      format="int64",
-     *                      example=1,
-     *                   ),
-     *               )
+     *                 )    
      * ))),
      *     @OA\Response(response=200, description="Ресурс обновлен"),     
      * )     
