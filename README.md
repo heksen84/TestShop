@@ -1,6 +1,6 @@
 <h1>Test shop</h1>
 
-<img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"/>
+<img src="http://195.2.81.181:8000/screen.png"/>
 
 
 <p>«адача сделать интернет магазин  (только Back-end часть )
