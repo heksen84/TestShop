@@ -20,12 +20,12 @@
                                     "email": {
                                         "description": "почта",
                                         "type": "string",
-                                        "default": "admin@fiton.com"
+                                        "default": "admin@testshop.com"
                                     },
                                     "password": {
                                         "description": "пароль",
                                         "type": "string",
-                                        "default": "22vWr!9grE"
+                                        "default": "22vWr23hh"
                                     }
                                 },
                                 "type": "object"

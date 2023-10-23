@@ -22,13 +22,13 @@ class AdminController extends Controller
      *                      description="почта",
      *                      property="email",
      *                      type="string",
-     *			            default="admin@fiton.com"
+     *			            default="admin@testshop.com"
      *                 ),
      *                 @OA\Property(
      *                      description="пароль",
      *                      property="password",
      *                      type="string",
-     *			            default="22vWr!9grE"
+     *			            default="22vWr23hh"
      *                 )
      *             )
      *          )
