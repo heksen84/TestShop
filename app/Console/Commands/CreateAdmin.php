@@ -14,7 +14,7 @@ class CreateAdmin extends Command
      *
      * @var string
      */
-    protected $signature = 'create:admin {--username=admin} {--email=admin@testshop.com} {--password=22vWr23hh}';
+    protected $signature = 'app:create-admin';
 
     /**
      * The console command description.
@@ -26,11 +26,10 @@ class CreateAdmin extends Command
     /**
      * Execute the console command.
      */
-    public function handle(): void
+    public function handle()
     {
-
 //        $data = ['name' => $this->argument('username'), 'email' => $this->argument('email'), 'password' => $this->argument('password')];
-        $data = ['name' => 'admin', 'email' => 'admin@testshop.com', 'password' => '22vWr23hh'];
+        $data = ['name' => 'admin', 'email' => 'admin@fiton.com', 'password' => '22vWr!9grE'];
 
         $rules = [
             'email' => 'required|unique:users|email',
@@ -57,7 +56,11 @@ class CreateAdmin extends Command
         $user = Admin::create(['email' => mb_strtolower($data['email']), 'password' => Hash::make($data['password']), 'name' => $data['name']]);
 
         if ($user->save()) {
+
             $this->info('Админ создан');
+
+/*	    if ($this->argument('admin') === 'true' && Admin::create(['user_id' => $user->id]))
+               $this->info('Админ создан');*/
         }
         else
             $this->info('Не возможно сохранить запись');
