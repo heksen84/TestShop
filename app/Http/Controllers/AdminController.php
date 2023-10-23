@@ -10,20 +10,20 @@ class AdminController extends Controller
     /**
      * @OA\Post(
      *     path="/api/admin/login",
-     *     tags={"Админ"},
-     *     summary="Авторизация",
+     *     tags={"РђРґРјРёРЅ"},
+     *     summary="РђРІС‚РѕСЂРёР·Р°С†РёСЏ",
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="application/json",
      *             @OA\Schema(
      *                 @OA\Property(
-     *                      description="почта",
+     *                      description="РїРѕС‡С‚Р°",
      *                      property="email",
      *                      type="string",
      *			            default="admin@fiton.com"
      *                 ),
      *                 @OA\Property(
-     *                      description="пароль",
+     *                      description="РїР°СЂРѕР»СЊ",
      *                      property="password",
      *                      type="string",
      *			            default="22vWr!9grE"
@@ -45,13 +45,13 @@ class AdminController extends Controller
             ];
 
             $messages = [
-                'email.required' => "Укажите email",
-                'email.string' => "Укажите почту в виде строки",
-                'email.unique' => "Почта уже существует",
-                'password.required' => "Укажите пароль",
-                'password.string' => "Укажите пароль в виде строки",
-                'password.confirmed' => "Пароли не совпадают",
-                'password.regex' => "Пароль должен быть не менее 6 символов и содержать цифры и специальные символы",
+                'email.required' => "РЈРєР°Р¶РёС‚Рµ email",
+                'email.string' => "РЈРєР°Р¶РёС‚Рµ РїРѕС‡С‚Сѓ РІ РІРёРґРµ СЃС‚СЂРѕРєРё",
+                'email.unique' => "РџРѕС‡С‚Р° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚",
+                'password.required' => "РЈРєР°Р¶РёС‚Рµ РїР°СЂРѕР»СЊ",
+                'password.string' => "РЈРєР°Р¶РёС‚Рµ РїР°СЂРѕР»СЊ РІ РІРёРґРµ СЃС‚СЂРѕРєРё",
+                'password.confirmed' => "РџР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚",
+                'password.regex' => "РџР°СЂРѕР»СЊ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РЅРµ РјРµРЅРµРµ 6 СЃРёРјРІРѕР»РѕРІ Рё СЃРѕРґРµСЂР¶Р°С‚СЊ С†РёС„СЂС‹ Рё СЃРїРµС†РёР°Р»СЊРЅС‹Рµ СЃРёРјРІРѕР»С‹",
             ];
 
             $validator = Validator::make($request->all(), $rules, $messages);
@@ -59,12 +59,12 @@ class AdminController extends Controller
             if ($validator->fails())
                 return response()->json($validator->errors()->first(), 400);
 
-            //Проверка email
+            //РџСЂРѕРІРµСЂРєР° email
             $admin = Admin::where('email', mb_strtolower($request->get('email')))->first();
 
-            // Проверка password
+            // РџСЂРѕРІРµСЂРєР° password
             if (!$admin || !Hash::check($request->get('password'), $admin->password))
-                return response(['message' => 'Введен не правильный логин и/или пароль', 'success' => false], 401);
+                return response(['message' => 'Р’РІРµРґРµРЅ РЅРµ РїСЂР°РІРёР»СЊРЅС‹Р№ Р»РѕРіРёРЅ Рё/РёР»Рё РїР°СЂРѕР»СЊ', 'success' => false], 401);
 
             $token = $admin->createToken($request->get('email'))->plainTextToken;
 
@@ -79,11 +79,11 @@ class AdminController extends Controller
     /**
      * @OA\Post(
      *     path="/api/admin/logout",
-     *     tags={"Админ"},
-     *     summary="Выход",
+     *     tags={"РђРґРјРёРЅ"},
+     *     summary="Р’С‹С…РѕРґ",
      * 	   security={ {"sanctum": {} }},
      *     @OA\Response(response=200, description="success", @OA\JsonContent()),
-     *     @OA\Response(response="500", description="Ошибка на стороне сервера", @OA\JsonContent())
+     *     @OA\Response(response="500", description="РћС€РёР±РєР° РЅР° СЃС‚РѕСЂРѕРЅРµ СЃРµСЂРІРµСЂР°", @OA\JsonContent())
      * )
      */
     public function logout()
@@ -100,23 +100,23 @@ class AdminController extends Controller
     /**
      * @OA\Get(
      *     path="/api/admin/list/users",
-     *     tags={"Админ"},
-     *     summary="Cписок пользователей",
+     *     tags={"РђРґРјРёРЅ"},
+     *     summary="CРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№",
      * 	   security={ {"sanctum": {} }},
      *     @OA\Parameter(
      *         name="page",
      *         in="query",
-     *         description="номер страницы"
+     *         description="РЅРѕРјРµСЂ СЃС‚СЂР°РЅРёС†С‹"
      *     ),
      *      @OA\Parameter(
      *         name="count",
      *         in="query",
-     *         description="кол-во элементов"
+     *         description="РєРѕР»-РІРѕ СЌР»РµРјРµРЅС‚РѕРІ"
      *     ),
      *     @OA\Parameter(
      *         name="email",
      *         in="query",
-     *         description="почта",
+     *         description="РїРѕС‡С‚Р°",
      *         explode=true,
      *         @OA\Schema(
      *             default="user@gmail.com",
