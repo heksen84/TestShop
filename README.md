@@ -3,7 +3,7 @@
 <img src="http://195.2.81.181:8000/screen.png"/>
 <h2>Инструкция по запуску</h2>
 
-<a href="localhost/api/documentation">перейти по ссылке</a>
+<a href="/localhost/api/documentation">перейти по ссылке</a>
 
 <h2>Задание</h2>
 <p>Задача сделать интернет магазин  (только Back-end часть )
