@@ -8,7 +8,13 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *     path="/api/product",
+     *     tags={"Продукты"},
+     *     security={ {"sanctum": {} }},     
+     *     summary="Перечень продуктов",     
+     *     @OA\Response(response="200", description="Success")
+     * )
      */
     public function index()
     {

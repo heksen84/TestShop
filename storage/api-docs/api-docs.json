@@ -229,6 +229,44 @@
                     }
                 ]
             }
+        },
+        "/api/product": {
+            "get": {
+                "tags": [
+                    "Продукты"
+                ],
+                "summary": "Перечень продуктов",
+                "operationId": "5cc57bec35d0f2045983cc8dcd00eccd",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/shoppingCard": {
+            "get": {
+                "tags": [
+                    "Корзина"
+                ],
+                "summary": "Перечень продуктов в корзине",
+                "operationId": "714db7d5668c665907027018c44fab86",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
         }
     },
     "components": {

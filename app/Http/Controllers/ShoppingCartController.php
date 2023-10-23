@@ -8,7 +8,13 @@ use Illuminate\Http\Request;
 class ShoppingCartController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *     path="/api/shoppingCard",
+     *     tags={"Корзина"},
+     *     security={ {"sanctum": {} }},     
+     *     summary="Перечень продуктов в корзине",     
+     *     @OA\Response(response="200", description="Success")
+     * )
      */
     public function index()
     {
