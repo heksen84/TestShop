@@ -3,9 +3,10 @@
 <img src="http://195.2.81.181:8000/screen.png"/>
 <h2>Инструкция для запуска</h2>
 
-<li>1. docker-compose up -d</li>
-<li>2. docker-compose up -d</li>
-<li>3. <a href="http://localhost/api/documentation">перейти по ссылке</a> или открыть адрес http://localhost/api/documentation</li>
+<li>1. git clone https://github.com/heksen84/TestShop.git</li>
+<li>2. cd testshop</li>
+<li>3. docker-compose up -d</li>
+<li>4. <a href="http://localhost/api/documentation">перейти по ссылке</a> или открыть адрес http://localhost/api/documentation</li>
 
 <h2>Задание</h2>
 <p>Задача сделать интернет магазин  (только Back-end часть )
