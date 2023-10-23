@@ -1,7 +1,7 @@
 <h1>Test shop</h1>
 
 <img src="http://195.2.81.181:8000/screen.png"/>
-<h2>Инструкция по запуску</h2>
+<h2>Инструкция для запуска</h2>
 
 <li>1. docker-compose up -d</li>
 <li>2. docker-compose up -d</li>
