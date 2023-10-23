@@ -1,3 +1,3 @@
 git add .
 git commit -m "upd"
-git push -u origin ilya
+git push -u origin main
