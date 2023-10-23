@@ -31,10 +31,11 @@ Route::group([
 });
 
 Route::group([
-    //'prefix' => 'workout',
-    //    'middleware' => ['auth:sanctum']
+    'middleware' => ['auth:sanctum']
 ], function () {
-    Route::resource('product', ProductController::class);
-    Route::resource('category', CategoryController::class);
-    Route::resource('shoppingCart', ShoppingCartController::class);
+    Route::resources([
+        'product' => ProductController::class,
+        'category' => CategoryController::class,
+        'shoppingCart' => ShoppingCartController::class
+    ]);
 });
