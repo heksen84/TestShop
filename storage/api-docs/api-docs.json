@@ -82,25 +82,11 @@
                 "tags": [
                     "Категории"
                 ],
-                "summary": "Получить категорию",
-                "operationId": "b5fa13e705df7864d42942845ba7fc1d",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "id упражнения",
-                        "required": true,
-                        "explode": true,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1,
-                            "minimum": 0
-                        }
-                    }
-                ],
+                "summary": "Перечень категорий",
+                "operationId": "327644f4d836240fa297b2822ab6ca92",
                 "responses": {
                     "200": {
-                        "description": "Ресурс получен"
+                        "description": "Success"
                     }
                 },
                 "security": [
@@ -113,7 +99,7 @@
                 "tags": [
                     "Категории"
                 ],
-                "summary": "Добавить категорию",
+                "summary": "Создать категорию",
                 "operationId": "75c388e2c6bd800c115e7884d915a82f",
                 "requestBody": {
                     "content": {
@@ -179,6 +165,37 @@
             }
         },
         "/api/category/{id}": {
+            "get": {
+                "tags": [
+                    "Категории"
+                ],
+                "summary": "Получить категорию",
+                "operationId": "25690688339275caf7ded3e8702e7670",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id упражнения",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1,
+                            "minimum": 0
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ресурс получен"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
             "put": {
                 "tags": [
                     "Категории"

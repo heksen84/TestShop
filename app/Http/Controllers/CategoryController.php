@@ -8,7 +8,13 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *     path="/api/category",
+     *     tags={"Категории"},
+     *     security={ {"sanctum": {} }},     
+     *     summary="Перечень категорий",     
+     *     @OA\Response(response="200", description="Success")
+     * )
      */
     public function index()
     {
@@ -19,7 +25,7 @@ class CategoryController extends Controller
      * @OA\Post(
      *     path="/api/category",
      *     tags={"Категории"},
-     *     summary="Добавить категорию",     
+     *     summary="Создать категорию",     
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="application/json",
@@ -50,7 +56,7 @@ class CategoryController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/category",
+     *     path="/api/category/{id}",
      *     tags={"Категории"},
      *     security={ {"sanctum": {} }},     
      *     summary="Получить категорию",
