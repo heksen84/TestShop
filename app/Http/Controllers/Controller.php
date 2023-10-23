@@ -7,7 +7,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
 /**
- * @OA\Info(title="TestShop API", version="0.1")
+ * @OA\Info(title="TestShop API", description="Ilya Bobkov (ilyabobkovprog@gmail.com)", version="0.1",  @OA\Contact(name="Swagger API Team"))
  * @OA\SecurityScheme(
  *     securityScheme="sanctum",
  *     type="http",
