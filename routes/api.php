@@ -30,6 +30,11 @@ Route::group([
     Route::get('/', [AdminController::class, 'get'])->middleware(['auth:sanctum'])->name('admin.get');
 });
 
-Route::resource('product', ProductController::class);
-Route::resource('category', CategoryController::class);
-Route::resource('shoppingCart', ShoppingCartController::class);
+Route::group([
+    //'prefix' => 'workout',
+    //    'middleware' => ['auth:sanctum']
+], function () {
+    Route::resource('product', ProductController::class);
+    Route::resource('category', CategoryController::class);
+    Route::resource('shoppingCart', ShoppingCartController::class);
+});
