@@ -1,4 +1,7 @@
 <h1>Test shop</h1>
+<img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
+    AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
+        9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" />
 
 <p>Задача сделать интернет магазин  (только Back-end часть )
 <p>Нужно реализовать функционал Корзины , Продукта , Категории , фильтр для поиска 
