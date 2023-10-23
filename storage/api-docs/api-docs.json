@@ -12,7 +12,7 @@
         "/api/admin/login": {
             "post": {
                 "tags": [
-                    "Админ"
+                    "Админ2"
                 ],
                 "summary": "Авторизация",
                 "operationId": "f3dc2e45e5fc2ee472d07f01f529af03",
