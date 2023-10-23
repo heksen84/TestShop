@@ -5,7 +5,7 @@
 
 <li>1. docker-compose up -d</li>
 <li>2. docker-compose up -d</li>
-<li>3. <a href="http://localhost/api/documentation">перейти по ссылке</a></li>
+<li>3. <a href="http://localhost/api/documentation">перейти по ссылке</a></li> или открыть адрес http://localhost/api/documentation
 
 <h2>Задание</h2>
 <p>Задача сделать интернет магазин  (только Back-end часть )
