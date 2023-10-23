@@ -77,52 +77,6 @@
                 ]
             }
         },
-        "/api/admin/list/users": {
-            "get": {
-                "tags": [
-                    "Админ"
-                ],
-                "summary": "Cписок пользователей",
-                "operationId": "5494c021b6fd63495e65f13469f0ae48",
-                "parameters": [
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "description": "номер страницы"
-                    },
-                    {
-                        "name": "count",
-                        "in": "query",
-                        "description": "кол-во элементов"
-                    },
-                    {
-                        "name": "email",
-                        "in": "query",
-                        "description": "почта",
-                        "explode": true,
-                        "schema": {
-                            "type": "string",
-                            "default": "user@gmail.com"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "success",
-                        "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "sanctum": []
-                    }
-                ]
-            }
-        },
         "/api/category": {
             "get": {
                 "tags": [
