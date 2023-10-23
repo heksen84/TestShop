@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('shopping_cart', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id');
             $table->timestamps();
         });
     }
