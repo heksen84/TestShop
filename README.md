@@ -6,7 +6,11 @@
 <li>1. git clone https://github.com/heksen84/TestShop.git</li>
 <li>2. cd testshop</li>
 <li>3. docker-compose up -d</li>
-<li>4. <a href="http://localhost/api/documentation">перейти по ссылке</a> или открыть адрес http://localhost/api/documentation</li>
+<li>4. docker-compose exec php bash</li>
+<li>5. composer install</li>
+<li>6. php artisan migrate</li>
+<li>7. exit</li>
+<li>8. <a href="http://localhost/api/documentation">перейти по ссылке</a> или открыть адрес http://localhost/api/documentation</li>
 
 <h2>Задание</h2>
 <p>Задача сделать интернет магазин  (только Back-end часть )
