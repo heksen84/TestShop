@@ -2,9 +2,9 @@
     "openapi": "3.0.0",
     "info": {
         "title": "TestShop API",
-        "description": "Ilya Bobkov (ilyabobkovprog@gmail.com)",
+        "description": "",
         "contact": {
-            "name": "Swagger API Team"
+            "email": "ilyabobkovprog@gmail.com"
         },
         "version": "0.1"
     },
