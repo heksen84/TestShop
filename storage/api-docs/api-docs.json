@@ -1,0 +1,206 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "TestShop API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/category": {
+            "get": {
+                "tags": [
+                    "Категории"
+                ],
+                "summary": "Получить категорию",
+                "operationId": "b5fa13e705df7864d42942845ba7fc1d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id упражнения",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1,
+                            "minimum": 0
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ресурс получен"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Категории"
+                ],
+                "summary": "Добавить категорию",
+                "operationId": "75c388e2c6bd800c115e7884d915a82f",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Название группы",
+                                        "type": "string",
+                                        "default": "Трапеция"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ресурс создан",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Категории"
+                ],
+                "summary": "Удалить категорию",
+                "operationId": "8b7c079d22b38bf71f3189b3b3213731",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id упражнения",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1,
+                            "minimum": 0
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ресурс удален",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/category/{id}": {
+            "put": {
+                "tags": [
+                    "Категории"
+                ],
+                "summary": "Обновить категорию",
+                "operationId": "9be67b4880d28356ade2ebc0b425415e",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "description": "id упражнения",
+                                        "type": "number",
+                                        "default": 1
+                                    },
+                                    "name": {
+                                        "description": "Название тренировки",
+                                        "type": "string",
+                                        "default": "Упражнение на бицепс"
+                                    },
+                                    "description": {
+                                        "description": "описание",
+                                        "type": "string",
+                                        "default": null
+                                    },
+                                    "video_male": {
+                                        "description": "Видео М",
+                                        "type": "file"
+                                    },
+                                    "video_male_profile": {
+                                        "description": "Видео М (профиль)",
+                                        "type": "file"
+                                    },
+                                    "video_male_full_face": {
+                                        "description": "Видео М (анфас)",
+                                        "type": "file"
+                                    },
+                                    "video_female": {
+                                        "description": "Видео Ж",
+                                        "type": "file"
+                                    },
+                                    "video_female_profile": {
+                                        "description": "Видео Ж (профиль)",
+                                        "type": "file"
+                                    },
+                                    "video_female_full_face": {
+                                        "description": "Видео Ж (анфас)",
+                                        "type": "file"
+                                    },
+                                    "muscle_groups": {
+                                        "description": "Группы мышц",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "example": 1
+                                        }
+                                    },
+                                    "inventory": {
+                                        "description": "Инвентарь",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "example": 1
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ресурс обновлен"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "sanctum": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
