@@ -3,6 +3,8 @@
 <img src="http://195.2.81.181:8000/screen.png"/>
 <h2>Инструкция по запуску</h2>
 
+<li>1. docker-compose up -d</li>
+<li>2. docker-compose up -d</li>
 Далее <a href="http://localhost/api/documentation">перейти по ссылке</a>
 
 <h2>Задание</h2>
