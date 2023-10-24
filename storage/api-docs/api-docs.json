@@ -311,6 +311,7 @@
                     }
                 ],
                 "requestBody": {
+                    "required": false,
                     "content": {
                         "multipart/form-data": {
                             "schema": {

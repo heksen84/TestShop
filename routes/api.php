@@ -50,7 +50,7 @@ Route::group([
 });
 
 Route::group([
-    'prefix' => 'shoppingCart',    
+    'prefix' => 'shoppingCart',
 ], function () {
     Route::get('', [ShoppingCartController::class, 'index']);
     Route::post('', [ShoppingCartController::class, 'store']);

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\ProductRequest;
-use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 
@@ -124,8 +123,9 @@ class ProductController extends Controller
      *         description="id продукта"     
      *     ),
      *     @OA\RequestBody(
+     *         required=false,
      *         @OA\MediaType(
-     *         mediaType="multipart/form-data",
+     *         mediaType="multipart/form-data",     
      *             @OA\Schema(
      *                 @OA\Property(
      *                      description="id категории",
@@ -161,12 +161,14 @@ class ProductController extends Controller
      *                      property="available",
      *                      type="boolean",
      *                 )
-     * ))),      
+     * )))
      * )     
      * )     
      */
-    public function update(ProductRequest $request, $id)
+    public function update($id, ProductRequest $request)
     {
+
+        return $request->all();
 
         if (!$request->validated())
             return response()->json($request->errors()->all());
