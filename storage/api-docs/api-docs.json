@@ -343,6 +343,30 @@
             }
         },
         "/api/product/{id}": {
+            "get": {
+                "tags": [
+                    "Продукты"
+                ],
+                "summary": "Получить продукт",
+                "operationId": "2768d88590e39a7ded1d0032e64dded7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id продукта"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ресурс удалён"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
             "delete": {
                 "tags": [
                     "Продукты"

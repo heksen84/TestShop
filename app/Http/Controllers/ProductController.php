@@ -81,11 +81,23 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @OA\Get(
+     *     path="/api/product/{id}",
+     *     tags={"Продукты"},
+     *     summary="Получить продукт", 
+     *     security={ {"sanctum": {} }},     
+     *     @OA\Response(response=200, description="Ресурс удалён"),
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="id продукта"     
+     *     )   
+     * )     
+     * )     
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        return Product::findOrFail($id);
     }
 
     /**
@@ -100,7 +112,7 @@ class ProductController extends Controller
      *         in="path",
      *         description="id продукта"     
      *     ),
-     * *     @OA\RequestBody(
+     *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="multipart/form-data",
      *             @OA\Schema(
@@ -170,8 +182,10 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
-        File::delete(public_path() . '/images/' . basename($product->image));
+        
+        File::delete(public_path() . '/images/' . basename($product->image));        
         $product->delete();
+
         return response()->json(['message' => 'Продукт удалён']);
     }
 }
