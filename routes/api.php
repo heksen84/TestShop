@@ -50,8 +50,7 @@ Route::group([
 });
 
 Route::group([
-    'prefix' => 'shoppingCart',
-    //'middleware' => ['auth:sanctum']
+    'prefix' => 'shoppingCart',    
 ], function () {
     Route::get('', [ShoppingCartController::class, 'index']);
     Route::post('', [ShoppingCartController::class, 'store']);
