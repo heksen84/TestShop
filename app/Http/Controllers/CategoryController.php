@@ -29,14 +29,20 @@ class CategoryController extends Controller
      *     security={ {"sanctum": {} }},         
      *     @OA\RequestBody(
      *         @OA\MediaType(
-     *             mediaType="multipart/form-data",
+     *             mediaType="application/json",
      *             @OA\Schema(
      *                 @OA\Property(
      *                      description="название категории",
      *                      property="name",
      *                      type="string",
      *			            default="Аксессуары"
-     *                 )    
+     *                 ),
+     *                 @OA\Property(
+     *                      description="массив id категорий",
+     *                      property="subcategory_ids",
+     *                      type="array",
+     *                      @OA\Items(type="number", example={1,2,3,4})
+     *                 ),     
      * ))),
      *     @OA\Response(response=201, description="Ресурс создан", @OA\JsonContent()),     
      * )     
