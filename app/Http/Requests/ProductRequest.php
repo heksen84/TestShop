@@ -27,7 +27,7 @@ class ProductRequest extends FormRequest
             'description' => 'string',
             'image' => 'file|mimes:jpeg,png,jpg',
             'price' => 'integer|min:0',
-            'available' => 'boolean'
+            'available' => 'boolean|required'
         ];
     }
 
