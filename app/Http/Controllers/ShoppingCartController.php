@@ -70,13 +70,10 @@ class ShoppingCartController extends Controller
      */
     public function delete($id)
     {
+        $shoppingCart = ShoppingCart::where("product_id", $id);
+        $shoppingCart->firstOrFail();
+        $shoppingCart->delete();
 
-        $product = ShoppingCart::where("product_id", $id);        
-
-        if (!$product)
-            return response()->json(['message' => 'Продукт не найден в корзине']);
-
-        $product->delete();
         return response()->json(['message' => 'Продукт удалён из корзины']);
     }
 }
