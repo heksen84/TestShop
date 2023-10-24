@@ -26,7 +26,7 @@ class ProductController extends Controller
      * @OA\Post(
      *     path="/api/product",
      *     tags={"Продукты"},
-     *     summary="Создать продукт", 
+     *     summary="Сохранить продукт", 
      *     security={ {"sanctum": {} }},         
      *     @OA\RequestBody(
      *         @OA\MediaType(

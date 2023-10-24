@@ -159,18 +159,20 @@
                         "sanctum": []
                     }
                 ]
-            },
+            }
+        },
+        "/api/category/{id}": {
             "delete": {
                 "tags": [
                     "Категории"
                 ],
                 "summary": "Удалить категорию",
-                "operationId": "8b7c079d22b38bf71f3189b3b3213731",
+                "operationId": "534a636fb456263f752f0983f8097fb5",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "id упражнения",
+                        "description": "id категории",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -218,7 +220,7 @@
                 "tags": [
                     "Продукты"
                 ],
-                "summary": "Создать продукт",
+                "summary": "Сохранить продукт",
                 "operationId": "1d0b0d8724685b7b8f9d87f403bfc4df",
                 "requestBody": {
                     "content": {
@@ -373,7 +375,7 @@
                     "Корзина"
                 ],
                 "summary": "Добавить продукт в корзину",
-                "operationId": "05e900d0ca9588733e8b6341157d04ba",
+                "operationId": "d4ba5ca52d9899d1d6421f33ca338d16",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -413,7 +415,7 @@
                     "Корзина"
                 ],
                 "summary": "Удалить продукт из корзины",
-                "operationId": "3a390f4970398b8dfa01e04f4f090477",
+                "operationId": "e535228d2660b0dde4576f19223d8709",
                 "parameters": [
                     {
                         "name": "id",
