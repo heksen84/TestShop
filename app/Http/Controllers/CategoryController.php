@@ -50,7 +50,7 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        
+
         if (!$request->validated())
             return response()->json($request->errors()->all());
 
