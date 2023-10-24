@@ -104,16 +104,16 @@
                     "Категории"
                 ],
                 "summary": "Создать категорию",
-                "operationId": "75c388e2c6bd800c115e7884d915a82f",
+                "operationId": "de40ad04180a48262a05cf249f785ab3",
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
                                 "properties": {
                                     "name": {
-                                        "description": "Название группы",
+                                        "description": "Название продукта",
                                         "type": "string",
-                                        "default": "Трапеция"
+                                        "default": "Аксессуары"
                                     }
                                 },
                                 "type": "object"
@@ -130,7 +130,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [

@@ -21,37 +21,35 @@ class CategoryController extends Controller
         //
     }
 
-    /**
-     * @OA\Post(
-     *     path="/api/category",
-     *     tags={"Категории"},
-     *     summary="Создать категорию",     
-     *     @OA\RequestBody(
-     *         @OA\MediaType(
-     *             mediaType="application/json",
-     *             @OA\Schema(
-     *                 @OA\Property(
-     *                      description="Название группы",
-     *                      property="name",
-     *                      type="string",
-     *			            default="Трапеция"
-     *                 )
-     * ))),
-     *     @OA\Response(response=201, description="Ресурс создан", @OA\JsonContent()),     
-     * )     
-     * )
-     */
     public function create()
     {
         //
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     *     path="/api/category",
+     *     tags={"Категории"},
+     *     summary="Создать категорию", 
+     *     security={ {"sanctum": {} }},         
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                      description="Название продукта",
+     *                      property="name",
+     *                      type="string",
+     *			            default="Аксессуары"
+     *                 )
+     * ))),
+     *     @OA\Response(response=201, description="Ресурс создан", @OA\JsonContent()),     
+     * )     
+     * )
      */
     public function store(Request $request)
     {
-        //
+        return $request->name;
     }
 
     /**
