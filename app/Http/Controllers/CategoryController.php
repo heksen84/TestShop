@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -70,10 +70,13 @@ class CategoryController extends Controller
      * )     
      * )
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
+        if (!$request->validated())
+            return response()->json($request->errors()->all());
+
         return Category::create($request->all());
-    }   
+    }
 
     /**
      * @OA\Delete(
