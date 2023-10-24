@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Http\Requests\CategoryRequest;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -59,10 +60,10 @@ class CategoryController extends Controller
         $category = Category::create($request->all());
         $subCategories = $request->get('sub_categories');
 
-        Category::findOrFail($subCategories);
-
         foreach ($subCategories as $id) {
-            SubCategory::create(["category_id" => $category->id, "subcategory_id" => $id]);
+
+            if (Category::find($id))
+                SubCategory::create(["category_id" => $category->id, "subcategory_id" => $id]);
         }
 
         return $category;
