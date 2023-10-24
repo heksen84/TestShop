@@ -12,7 +12,7 @@
 <li>7. php artisan app:create-admin</li>
 <li>8. exit</li>
 <li>9. <a href="http://localhost/api/documentation">перейти по ссылке</a> или открыть адрес http://localhost/api/documentation</li>
-
+<br>
 <a href="http://94.103.85.28/api/documentation">Пример работы</a>
 
 <h2>Задание</h2>
