@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Http\Requests\CategoryRequest;
-use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
