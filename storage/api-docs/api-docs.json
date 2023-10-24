@@ -279,6 +279,67 @@
                         "sanctum": []
                     }
                 ]
+            },
+            "post": {
+                "tags": [
+                    "Продукты"
+                ],
+                "summary": "Создать продукт",
+                "operationId": "1d0b0d8724685b7b8f9d87f403bfc4df",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "category_id": {
+                                        "description": "id категории",
+                                        "type": "number",
+                                        "default": 1
+                                    },
+                                    "name": {
+                                        "description": "название продукта",
+                                        "type": "string",
+                                        "default": "Аксессуары"
+                                    },
+                                    "description": {
+                                        "description": "описание",
+                                        "type": "string",
+                                        "default": "Описание продукта"
+                                    },
+                                    "image": {
+                                        "description": "изображение",
+                                        "type": "file"
+                                    },
+                                    "price": {
+                                        "description": "цена",
+                                        "type": "number",
+                                        "default": 100000
+                                    },
+                                    "available": {
+                                        "description": "в наличии",
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ресурс создан",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             }
         },
         "/api/shoppingCard": {
