@@ -343,28 +343,43 @@
             }
         },
         "/api/product/{id}": {
-            "put": {
+            "delete": {
+                "tags": [
+                    "Продукты"
+                ],
+                "summary": "Удалить продукт",
+                "operationId": "c830155516bad1f72b0081160edeb2ac",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id продукта"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ресурс обновлен"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "patch": {
                 "tags": [
                     "Продукты"
                 ],
                 "summary": "Обновить продукт",
-                "operationId": "d3467c795490afbb49680821c9bd6b0d",
-                "requestBody": {
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "properties": {
-                                    "id": {
-                                        "description": "id продукта",
-                                        "type": "number",
-                                        "default": 1
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
+                "operationId": "506c53398f4bb15875c04e363a1e9d95",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id продукта"
                     }
-                },
+                ],
                 "responses": {
                     "200": {
                         "description": "Ресурс обновлен"

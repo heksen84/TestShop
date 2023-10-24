@@ -73,7 +73,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
         $data['available'] = $request->get("available") === "true" ? 1 : 0;
         $data['image'] = url('') . '/' . $request->image->store('images', 'public');
 
@@ -89,38 +88,43 @@ class ProductController extends Controller
     }
 
     /**
-     * @OA\Put(
+     * @OA\Patch(
      *     path="/api/product/{id}",
      *     tags={"Продукты"},
      *     summary="Обновить продукт", 
-     *     security={ {"sanctum": {} }},    
-     *     @OA\RequestBody(
-     *         @OA\MediaType(
-     *             mediaType="multipart/form-data",
-     *             @OA\Schema(
-     *                 @OA\Property(
-     *                      description="id продукта",
-     *                      property="id",
-     *                      type="number",
-     *			            default=1
-     *                 )    
-     * ))),
-     *     @OA\Response(response=200, description="Ресурс обновлен"),     
+     *     security={ {"sanctum": {} }},     
+     *     @OA\Response(response=200, description="Ресурс обновлен"),
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="id продукта"     
+     *     )     
      * )     
      * )     
      */
-    public function update(Request $request, Product $product)
+    public function update($id)
     {
-        return $request->get('id');
-
-        //$products = $product->findOrFail($request->get('id'));
+        $products = Product::findOrFail($id);
+        return $products;
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @OA\Delete(
+     *     path="/api/product/{id}",
+     *     tags={"Продукты"},
+     *     summary="Удалить продукт", 
+     *     security={ {"sanctum": {} }},     
+     *     @OA\Response(response=200, description="Ресурс удалён"),
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="id продукта"     
+     *     )   
+     * )     
+     * )     
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        Product::findOrFail($id)->delete();
     }
 }
