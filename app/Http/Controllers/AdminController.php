@@ -28,7 +28,7 @@ class AdminController extends Controller
      *                      description="пароль",
      *                      property="password",
      *                      type="string",
-     *			            default="22vWr23hh"
+     *			            default="22vWr!9grE_"
      *                 )
      *             )
      *          )
@@ -38,6 +38,8 @@ class AdminController extends Controller
      */
     public function login(Request $request)
     {
+
+        //return $request;
 
         try {
 

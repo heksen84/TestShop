@@ -9,8 +9,9 @@
 <li>4. docker-compose exec php bash</li>
 <li>5. composer install</li>
 <li>6. php artisan migrate</li>
-<li>7. exit</li>
-<li>8. <a href="http://localhost/api/documentation">перейти по ссылке</a> или открыть адрес http://localhost/api/documentation</li>
+<li>7. php artisan app:create-admin</li>
+<li>8. exit</li>
+<li>9. <a href="http://localhost/api/documentation">перейти по ссылке</a> или открыть адрес http://localhost/api/documentation</li>
 
 <h2>Задание</h2>
 <p>Задача сделать интернет магазин  (только Back-end часть )

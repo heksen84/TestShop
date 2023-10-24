@@ -28,8 +28,8 @@ class CreateAdmin extends Command
      */
     public function handle()
     {
-//        $data = ['name' => $this->argument('username'), 'email' => $this->argument('email'), 'password' => $this->argument('password')];
-        $data = ['name' => 'admin', 'email' => 'admin@fiton.com', 'password' => '22vWr!9grE'];
+        //        $data = ['name' => $this->argument('username'), 'email' => $this->argument('email'), 'password' => $this->argument('password')];
+        $data = ['name' => 'admin', 'email' => 'admin@testshop.com', 'password' => '22vWr!9grE_'];
 
         $rules = [
             'email' => 'required|unique:users|email',
@@ -59,10 +59,9 @@ class CreateAdmin extends Command
 
             $this->info('Админ создан');
 
-/*	    if ($this->argument('admin') === 'true' && Admin::create(['user_id' => $user->id]))
+            /*	    if ($this->argument('admin') === 'true' && Admin::create(['user_id' => $user->id]))
                $this->info('Админ создан');*/
-        }
-        else
+        } else
             $this->info('Не возможно сохранить запись');
     }
 }
