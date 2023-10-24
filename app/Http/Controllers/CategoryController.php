@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\SubCategory;
 use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
@@ -55,10 +56,13 @@ class CategoryController extends Controller
         if (!$request->validated())
             return response()->json($request->errors()->all());
 
+        $category = Category::create($request->all());
+
         foreach ($request->get('sub_categories') as $id) {
+            SubCategory::create(["category_id" => $category->id, "subcategory_id" => $id]);
         }
 
-        return Category::create($request->all());
+        return $category;
     }
 
     /**
@@ -84,6 +88,8 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         Category::findOrFail($id)->delete();
+        SubCategory::where("category_id", $id)->delete();
+
         return response()->json(['message' => 'Категория удалёна']);
     }
 }
