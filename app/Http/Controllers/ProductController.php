@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use App\Models\Product;
 use App\Http\Requests\ProductRequest;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -78,6 +79,11 @@ class ProductController extends Controller
         if (!$request->validated())
             return response()->json($request->errors()->all());
 
+        $categoryId = $request->get('category_id');
+
+        if (!Category::find($categoryId))
+            return "Категория с id " . $categoryId . " не найдена";
+
         $data = $request->all();
         $data['image'] = url('') . '/' . $request->image->store('images', 'public');
 
@@ -119,10 +125,16 @@ class ProductController extends Controller
      * )     
      * )     
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
 
-        return $request->all();
+        if (!$request->validated())
+            return response()->json($request->errors()->all());
+
+        $categoryId = $request->get('category_id');
+
+        if (!Category::find($categoryId))
+            return "Категория с id " . $categoryId . " не найдена";
 
         $product = Product::findOrFail($id);
 
