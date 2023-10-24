@@ -44,7 +44,7 @@ class CategoryController extends Controller
      *                      type="array",
      *                      @OA\Items(type="number")
      *                 ),     
-     *                 example = {"name": "Аксессуары", "sub_categories": {1,2,3,4,5}}
+     *                 example = {"name": "Аксессуары", "sub_categories": {1,2,3,18,19}}
      * ))),
      *     @OA\Response(response=201, description="Ресурс создан", @OA\JsonContent()),     
      * )     
@@ -57,8 +57,11 @@ class CategoryController extends Controller
             return response()->json($request->errors()->all());
 
         $category = Category::create($request->all());
+        $subCategories = $request->get('sub_categories');
 
-        foreach ($request->get('sub_categories') as $id) {
+        Category::findOrFail($subCategories);
+
+        foreach ($subCategories as $id) {
             SubCategory::create(["category_id" => $category->id, "subcategory_id" => $id]);
         }
 
