@@ -113,25 +113,27 @@
                                 "properties": {
                                     "name": {
                                         "description": "название категории",
-                                        "type": "string",
-                                        "default": "Аксессуары"
+                                        "type": "string"
                                     },
                                     "sub_categories": {
                                         "description": "массив id категорий",
                                         "type": "array",
                                         "items": {
-                                            "type": "number",
-                                            "example": [
-                                                1,
-                                                2,
-                                                3,
-                                                4,
-                                                5
-                                            ]
+                                            "type": "number"
                                         }
                                     }
                                 },
-                                "type": "object"
+                                "type": "object",
+                                "example": {
+                                    "name": "Аксессуары",
+                                    "sub_categories": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ]
+                                }
                             }
                         }
                     }

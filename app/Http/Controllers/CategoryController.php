@@ -35,15 +35,15 @@ class CategoryController extends Controller
      *                 @OA\Property(
      *                      description="название категории",
      *                      property="name",
-     *                      type="string",
-     *			            default="Аксессуары"
+     *                      type="string"
      *                 ),
      *                 @OA\Property(
      *                      description="массив id категорий",
      *                      property="sub_categories",
      *                      type="array",
-     *                      @OA\Items(type="number", example={1,2,3,4,5})
+     *                      @OA\Items(type="number")
      *                 ),     
+     *                 example = {"name": "Аксессуары", "sub_categories": {1,2,3,4,5}}
      * ))),
      *     @OA\Response(response=201, description="Ресурс создан", @OA\JsonContent()),     
      * )     

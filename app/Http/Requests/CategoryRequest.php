@@ -23,7 +23,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name' => 'string|required|unique:categories',
-            'subcategory_ids' => 'array'
+            'sub_categories' => 'array'
         ];
     }
 }
