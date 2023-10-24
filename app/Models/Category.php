@@ -13,7 +13,7 @@ class Category extends Model
         'name'
     ];
 
-    protected $appends = ['subCategories'];
+    protected $appends = ['sub_categories'];
 
     public function getSubcategoriesAttribute()
     {
@@ -22,6 +22,6 @@ class Category extends Model
             ->where("exercise_muscle_groups.exercise_id", $this->id)
             ->distinct()
             ->get();*/
-        return "hello";
+        return [];
     }
 }
