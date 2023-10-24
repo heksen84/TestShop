@@ -107,13 +107,22 @@
                 "operationId": "de40ad04180a48262a05cf249f785ab3",
                 "requestBody": {
                     "content": {
-                        "application/json": {
+                        "multipart/form-data": {
                             "schema": {
                                 "properties": {
                                     "name": {
                                         "description": "Название продукта",
                                         "type": "string",
                                         "default": "Аксессуары"
+                                    },
+                                    "description": {
+                                        "description": "Описание",
+                                        "type": "string",
+                                        "default": ""
+                                    },
+                                    "image": {
+                                        "description": "Изображение",
+                                        "type": "file"
                                     }
                                 },
                                 "type": "object"

@@ -34,14 +34,25 @@ class CategoryController extends Controller
      *     security={ {"sanctum": {} }},         
      *     @OA\RequestBody(
      *         @OA\MediaType(
-     *             mediaType="application/json",
+     *             mediaType="multipart/form-data",
      *             @OA\Schema(
      *                 @OA\Property(
      *                      description="Название продукта",
      *                      property="name",
      *                      type="string",
      *			            default="Аксессуары"
-     *                 )
+     *                 ),
+     *                 @OA\Property(
+     *                      description="Описание",
+     *                      property="description",
+     *                      type="string",
+     *			            default=""
+     *                 ),    
+     *                 @OA\Property(
+     *                      description="Изображение",
+     *                      property="image",
+     *                      type="file",
+     *                 ),
      * ))),
      *     @OA\Response(response=201, description="Ресурс создан", @OA\JsonContent()),     
      * )     
