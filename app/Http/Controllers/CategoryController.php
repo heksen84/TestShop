@@ -21,11 +21,6 @@ class CategoryController extends Controller
         return Category::all();
     }
 
-    public function create()
-    {
-        //
-    }
-
     /**
      * @OA\Post(
      *     path="/api/category",
@@ -101,44 +96,6 @@ class CategoryController extends Controller
      *     @OA\Response(response="200", description="Ресурс получен")
      * )
      */
-    public function show(Category $category)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Category $category)
-    {
-        //
-    }
-
-    /**
-     * @OA\Put(
-     *     path="/api/category/{id}",
-     *     tags={"Категории"},
-     *     security={ {"sanctum": {} }},     
-     *     summary="Обновить категорию",   
-     *     @OA\RequestBody(
-     *         @OA\MediaType(
-     *             mediaType="multipart/form-data",
-     *             @OA\Schema(
-     *                 @OA\Property(
-     *                      description="id упражнения",
-     *                      property="id",
-     *                      type="number",
-     *			            default=1
-     *                 )    
-     * ))),
-     *     @OA\Response(response=200, description="Ресурс обновлен"),     
-     * )     
-     * )     
-     */
-    public function update(Request $request, Category $category)
-    {
-        //
-    }
 
     /**
      * @OA\Delete(

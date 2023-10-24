@@ -34,9 +34,17 @@ Route::group([
     'middleware' => ['auth:sanctum']
 ], function () {
     Route::resources([
-        'product' => ProductController::class,
-        'category' => CategoryController::class
+        'product' => ProductController::class
     ]);
+});
+
+Route::group([
+    'prefix' => 'category',
+    'middleware' => ['auth:sanctum']
+], function () {
+    Route::get('', [CategoryController::class, 'index']);
+    Route::post('', [CategoryController::class, 'add']);
+    Route::delete('/{id}', [CategoryController::class, 'delete']);
 });
 
 
