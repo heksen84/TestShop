@@ -144,12 +144,12 @@ class ProductController extends Controller
      */
     public function update($id, Request $request)
     {
-        $products = Product::findOrFail($id);
-        
-        if (File::delete(public_path() . '/images/' . basename($products->image)))
+        $product = Product::findOrFail($id);
+
+        if (File::delete(public_path() . '/images/' . basename($product->image)))
             $products['image'] = url('') . '/' . $request->image->store('images', 'public');
 
-        return $products;
+        return $product;
     }
 
     /**
@@ -169,6 +169,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::findOrFail($id)->delete();
+        $product = Product::findOrFail($id);
+        File::delete(public_path() . '/images/' . basename($product->image));
+        $product->delete();
+        return response()->json(['message' => 'Продукт удалён']);
     }
 }
