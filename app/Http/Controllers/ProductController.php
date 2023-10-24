@@ -22,14 +22,6 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * @OA\Post(
      *     path="/api/product",
      *     tags={"Продукты"},
@@ -81,7 +73,9 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
         $data['available'] = $request->get("available") === "true" ? 1 : 0;
+        $data['image'] = url('') . '/' . $request->image->store('images', 'public');
 
         return Product::create($data);
     }
@@ -95,19 +89,31 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * @OA\Put(
+     *     path="/api/product/{id}",
+     *     tags={"Продукты"},
+     *     summary="Обновить продукт", 
+     *     security={ {"sanctum": {} }},    
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                      description="id продукта",
+     *                      property="id",
+     *                      type="number",
+     *			            default=1
+     *                 )    
+     * ))),
+     *     @OA\Response(response=200, description="Ресурс обновлен"),     
+     * )     
+     * )     
      */
     public function update(Request $request, Product $product)
     {
-        //
+        return $request->get('id');
+
+        //$products = $product->findOrFail($request->get('id'));
     }
 
     /**

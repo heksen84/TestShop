@@ -342,6 +342,41 @@
                 ]
             }
         },
+        "/api/product/{id}": {
+            "put": {
+                "tags": [
+                    "Продукты"
+                ],
+                "summary": "Обновить продукт",
+                "operationId": "d3467c795490afbb49680821c9bd6b0d",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "description": "id продукта",
+                                        "type": "number",
+                                        "default": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ресурс обновлен"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
         "/api/shoppingCard": {
             "get": {
                 "tags": [
