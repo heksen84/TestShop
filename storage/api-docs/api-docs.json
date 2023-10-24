@@ -358,7 +358,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Ресурс обновлен"
+                        "description": "Ресурс удалён"
                     }
                 },
                 "security": [
@@ -380,6 +380,45 @@
                         "description": "id продукта"
                     }
                 ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "category_id": {
+                                        "description": "id категории",
+                                        "type": "number",
+                                        "default": 1
+                                    },
+                                    "name": {
+                                        "description": "название продукта",
+                                        "type": "string",
+                                        "default": "Аксессуары"
+                                    },
+                                    "description": {
+                                        "description": "описание",
+                                        "type": "string",
+                                        "default": "Описание продукта"
+                                    },
+                                    "image": {
+                                        "description": "изображение",
+                                        "type": "file"
+                                    },
+                                    "price": {
+                                        "description": "цена",
+                                        "type": "number",
+                                        "default": 100000
+                                    },
+                                    "available": {
+                                        "description": "в наличии",
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "Ресурс обновлен"
