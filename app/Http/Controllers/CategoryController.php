@@ -83,6 +83,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::findOrFail($id)->delete();
+        return response()->json(['message' => 'Категория удалёна']);
     }
 }
