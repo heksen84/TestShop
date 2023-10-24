@@ -22,50 +22,51 @@ class ShoppingCartController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * @OA\Post(
+     *     path="/api/shoppingCard",
+     *     tags={"Корзина"},
+     *     security={ {"sanctum": {} }},     
+     *     summary="Добавить продукт в корзину",
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                      description="id продукта",
+     *                      property="id",
+     *                      type="number",
+     *			            default=1
+     *                 )
+     * ))),
+     *     @OA\Response(response=201, description="Ресурс создан", @OA\JsonContent()),     
+     * )     
+     * )
      */
-    public function create()
+    public function add(Request $request)
     {
-        //
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @OA\Delete(
+     *     path="/api/shoppingCard/{id}",
+     *     tags={"Корзина"},
+     *     security={ {"sanctum": {} }},     
+     *     summary="Удалить продукт из корзины",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="id продукта",
+     *         @OA\Schema(
+     *             type="integer",
+     *             minimum=0,
+     *             default=1
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="Ресурс удален", @OA\JsonContent()),     
+     * )
      */
-    public function store(Request $request)
+    public function remove(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(ShoppingCart $shoppingCart)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(ShoppingCart $shoppingCart)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, ShoppingCart $shoppingCart)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(ShoppingCart $shoppingCart)
-    {
-        //
     }
 }

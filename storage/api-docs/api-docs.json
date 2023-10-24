@@ -270,6 +270,81 @@
                         "sanctum": []
                     }
                 ]
+            },
+            "post": {
+                "tags": [
+                    "Корзина"
+                ],
+                "summary": "Добавить продукт в корзину",
+                "operationId": "bd2b1f4bddef3a197e9dcb414376da41",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "description": "id продукта",
+                                        "type": "number",
+                                        "default": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ресурс создан",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/shoppingCard/{id}": {
+            "delete": {
+                "tags": [
+                    "Корзина"
+                ],
+                "summary": "Удалить продукт из корзины",
+                "operationId": "0a92ef42fa30f18d03b49a619de6df32",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id продукта",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1,
+                            "minimum": 0
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ресурс удален",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             }
         }
     },
