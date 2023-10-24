@@ -38,8 +38,10 @@ class ProductRequest extends FormRequest
      */
     protected function prepareForValidation()
     {
-        $this->merge([
-            'available' => $this->available === 'true' ? 1 : 0
-        ]);
+        if ($this->available) {
+            $this->merge([
+                'available' => $this->available === 'true' ? 1 : 0
+            ]);
+        }
     }
 }
