@@ -1,6 +1,6 @@
 <h1>Test shop</h1>
 
-<img src="http://195.2.81.181:8000/screen.png"/>
+<img src="http://195.2.81.181:8000/screen.png" />
 <h2>Инструкция для запуска</h2>
 
 <li>1. git clone https://github.com/heksen84/TestShop.git</li>
