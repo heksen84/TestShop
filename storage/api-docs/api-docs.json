@@ -110,19 +110,31 @@
                         "multipart/form-data": {
                             "schema": {
                                 "properties": {
+                                    "category_id": {
+                                        "description": "id категории",
+                                        "type": "number"
+                                    },
                                     "name": {
-                                        "description": "Название продукта",
+                                        "description": "название продукта",
                                         "type": "string",
                                         "default": "Аксессуары"
                                     },
                                     "description": {
-                                        "description": "Описание",
+                                        "description": "описание",
                                         "type": "string",
                                         "default": ""
                                     },
                                     "image": {
-                                        "description": "Изображение",
+                                        "description": "изображение",
                                         "type": "file"
+                                    },
+                                    "price": {
+                                        "description": "цена",
+                                        "type": "number"
+                                    },
+                                    "available": {
+                                        "description": "в наличии",
+                                        "type": "boolean"
                                     }
                                 },
                                 "type": "object"

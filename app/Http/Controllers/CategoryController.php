@@ -37,22 +37,37 @@ class CategoryController extends Controller
      *             mediaType="multipart/form-data",
      *             @OA\Schema(
      *                 @OA\Property(
-     *                      description="Название продукта",
+     *                      description="id категории",
+     *                      property="category_id",
+     *                      type="number",
+     *                 ),
+     *                 @OA\Property(
+     *                      description="название продукта",
      *                      property="name",
      *                      type="string",
      *			            default="Аксессуары"
      *                 ),
      *                 @OA\Property(
-     *                      description="Описание",
+     *                      description="описание",
      *                      property="description",
      *                      type="string",
      *			            default=""
      *                 ),    
      *                 @OA\Property(
-     *                      description="Изображение",
+     *                      description="изображение",
      *                      property="image",
      *                      type="file",
      *                 ),
+     *                 @OA\Property(
+     *                      description="цена",
+     *                      property="price",
+     *                      type="number",
+     *                 ),
+     *                 @OA\Property(
+     *                      description="в наличии",
+     *                      property="available",
+     *                      type="boolean",
+     *                 )
      * ))),
      *     @OA\Response(response=201, description="Ресурс создан", @OA\JsonContent()),     
      * )     
