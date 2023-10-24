@@ -9,6 +9,7 @@ use App\Models\Category;
 
 class ProductController extends Controller
 {
+
     /**
      * @OA\Get(
      *     path="/api/product",

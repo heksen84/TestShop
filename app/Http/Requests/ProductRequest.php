@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Validator;
 
 class ProductRequest extends FormRequest
 {
@@ -44,4 +45,16 @@ class ProductRequest extends FormRequest
             ]);
         }
     }
+
+    /*public function after(): array
+    {
+        return [
+            function (Validator $validator) {
+                $validator->errors()->add(
+                    'field',
+                    'Something is wrong with this field!'
+                );
+            }
+        ];
+    }*/
 }
