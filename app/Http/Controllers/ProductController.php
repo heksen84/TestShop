@@ -161,6 +161,8 @@ class ProductController extends Controller
         if (File::delete(public_path() . '/images/' . basename($product->image)))
             $products['image'] = url('') . '/' . $request->image->store('images', 'public');
 
+        $product->update($request->all());
+
         return $product;
     }
 
@@ -182,8 +184,8 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
-        
-        File::delete(public_path() . '/images/' . basename($product->image));        
+
+        File::delete(public_path() . '/images/' . basename($product->image));
         $product->delete();
 
         return response()->json(['message' => 'Продукт удалён']);
