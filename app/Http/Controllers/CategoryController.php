@@ -28,7 +28,7 @@ class CategoryController extends Controller
      *     summary="Сохранить категорию", 
      *     security={ {"sanctum": {} }},         
      *     @OA\RequestBody(
-     *         description="name - название категории, sub_categories - id под категорий в виде массива, например: sub_categories: [1,2,3,4,5]",
+     *         description="name - название категории, sub_categories - массив id категорий, например: sub_categories: [1,2,3,4,5]",
      *         @OA\MediaType(
      *             mediaType="application/json",
      *             @OA\Schema(
