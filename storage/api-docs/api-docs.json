@@ -404,45 +404,6 @@
                         "description": "id продукта"
                     }
                 ],
-                "requestBody": {
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "properties": {
-                                    "category_id": {
-                                        "description": "id категории",
-                                        "type": "number",
-                                        "default": 1
-                                    },
-                                    "name": {
-                                        "description": "название продукта",
-                                        "type": "string",
-                                        "default": "Аксессуары"
-                                    },
-                                    "description": {
-                                        "description": "описание",
-                                        "type": "string",
-                                        "default": "Описание продукта"
-                                    },
-                                    "image": {
-                                        "description": "изображение",
-                                        "type": "file"
-                                    },
-                                    "price": {
-                                        "description": "цена",
-                                        "type": "number",
-                                        "default": 100000
-                                    },
-                                    "available": {
-                                        "description": "в наличии",
-                                        "type": "boolean"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
                 "responses": {
                     "200": {
                         "description": "Ресурс обновлен"
@@ -455,13 +416,13 @@
                 ]
             }
         },
-        "/api/shoppingCard": {
+        "/api/shoppingCart": {
             "get": {
                 "tags": [
                     "Корзина"
                 ],
                 "summary": "Перечень продуктов в корзине",
-                "operationId": "714db7d5668c665907027018c44fab86",
+                "operationId": "5cd95b4d85d089b94f26359f2432495c",
                 "responses": {
                     "200": {
                         "description": "Success"
@@ -478,13 +439,13 @@
                     "Корзина"
                 ],
                 "summary": "Добавить продукт в корзину",
-                "operationId": "bd2b1f4bddef3a197e9dcb414376da41",
+                "operationId": "05e900d0ca9588733e8b6341157d04ba",
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
                                 "properties": {
-                                    "id": {
+                                    "product_id": {
                                         "description": "id продукта",
                                         "type": "number",
                                         "default": 1
@@ -512,13 +473,13 @@
                 ]
             }
         },
-        "/api/shoppingCard/{id}": {
+        "/api/shoppingCart/{id}": {
             "delete": {
                 "tags": [
                     "Корзина"
                 ],
                 "summary": "Удалить продукт из корзины",
-                "operationId": "0a92ef42fa30f18d03b49a619de6df32",
+                "operationId": "3a390f4970398b8dfa01e04f4f090477",
                 "parameters": [
                     {
                         "name": "id",

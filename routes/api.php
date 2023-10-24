@@ -35,7 +35,16 @@ Route::group([
 ], function () {
     Route::resources([
         'product' => ProductController::class,
-        'category' => CategoryController::class,
-        'shoppingCart' => ShoppingCartController::class
+        'category' => CategoryController::class
     ]);
+});
+
+
+Route::group([
+    'prefix' => 'shoppingCart',
+    'middleware' => ['auth:sanctum']
+], function () {
+    Route::get('', [ShoppingCartController::class, 'index']);
+    Route::post('', [ShoppingCartController::class, 'add']);
+    Route::delete('', [ShoppingCartController::class, 'delete']);
 });

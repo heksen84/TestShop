@@ -9,7 +9,7 @@ class ShoppingCartController extends Controller
 {
     /**
      * @OA\Get(
-     *     path="/api/shoppingCard",
+     *     path="/api/shoppingCart",
      *     tags={"Корзина"},
      *     security={ {"sanctum": {} }},     
      *     summary="Перечень продуктов в корзине",     
@@ -18,12 +18,12 @@ class ShoppingCartController extends Controller
      */
     public function index()
     {
-        //
+        return ShoppingCart::all();
     }
 
     /**
      * @OA\Post(
-     *     path="/api/shoppingCard",
+     *     path="/api/shoppingCart",
      *     tags={"Корзина"},
      *     security={ {"sanctum": {} }},     
      *     summary="Добавить продукт в корзину",
@@ -33,7 +33,7 @@ class ShoppingCartController extends Controller
      *             @OA\Schema(
      *                 @OA\Property(
      *                      description="id продукта",
-     *                      property="id",
+     *                      property="product_id",
      *                      type="number",
      *			            default=1
      *                 )
@@ -44,11 +44,13 @@ class ShoppingCartController extends Controller
      */
     public function add(Request $request)
     {
+        ShoppingCart::create($request->all());
+        return response()->json(['message' => 'Продукт добавлен в корзину']);
     }
 
     /**
      * @OA\Delete(
-     *     path="/api/shoppingCard/{id}",
+     *     path="/api/shoppingCart/{id}",
      *     tags={"Корзина"},
      *     security={ {"sanctum": {} }},     
      *     summary="Удалить продукт из корзины",
@@ -66,7 +68,7 @@ class ShoppingCartController extends Controller
      *     @OA\Response(response=200, description="Ресурс удален", @OA\JsonContent()),     
      * )
      */
-    public function remove(Request $request)
+    public function delete(Request $request)
     {
     }
 }
