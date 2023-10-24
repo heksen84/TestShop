@@ -46,5 +46,5 @@ Route::group([
 ], function () {
     Route::get('', [ShoppingCartController::class, 'index']);
     Route::post('', [ShoppingCartController::class, 'add']);
-    Route::delete('', [ShoppingCartController::class, 'delete']);
+    Route::delete('/{id}', [ShoppingCartController::class, 'delete']);
 });

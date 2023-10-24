@@ -68,7 +68,15 @@ class ShoppingCartController extends Controller
      *     @OA\Response(response=200, description="Ресурс удален", @OA\JsonContent()),     
      * )
      */
-    public function delete(Request $request)
+    public function delete($id)
     {
+
+        $product = ShoppingCart::where("product_id", $id);        
+
+        if (!$product)
+            return response()->json(['message' => 'Продукт не найден в корзине']);
+
+        $product->delete();
+        return response()->json(['message' => 'Продукт удалён из корзины']);
     }
 }
