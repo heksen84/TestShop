@@ -31,20 +31,22 @@ Route::group([
 });
 
 Route::group([
-    'middleware' => ['auth:sanctum']
-], function () {
-    Route::resources([
-        'product' => ProductController::class
-    ]);
-});
-
-Route::group([
     'prefix' => 'category',
     'middleware' => ['auth:sanctum']
 ], function () {
     Route::get('/', [CategoryController::class, 'index']);
     Route::post('/', [CategoryController::class, 'store']);
     Route::delete('/{id}', [CategoryController::class, 'destroy']);
+});
+
+Route::group([
+    'prefix' => 'product',
+    'middleware' => ['auth:sanctum']
+], function () {
+    Route::get('/', [ProductController::class, 'index']);
+    Route::post('/', [ProductController::class, 'store']);
+    Route::post('/{id}', [ProductController::class, 'update']);
+    Route::delete('/{id}', [ProductController::class, 'destroy']);
 });
 
 Route::group([

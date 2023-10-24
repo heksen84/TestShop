@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\ProductRequest;
+use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 
@@ -111,7 +112,7 @@ class ProductController extends Controller
     }
 
     /**
-     * @OA\Patch(
+     * @OA\Post(
      *     path="/api/product/{id}",
      *     tags={"Продукты"},
      *     summary="Обновить продукт", 
@@ -121,7 +122,46 @@ class ProductController extends Controller
      *         name="id",
      *         in="path",
      *         description="id продукта"     
-     *     )      
+     *     ),
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *         mediaType="multipart/form-data",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                      description="id категории",
+     *                      property="category_id",
+     *                      type="number",
+     *			            default=1
+     *                 ),
+     *                 @OA\Property(
+     *                      description="название продукта",
+     *                      property="name",
+     *                      type="string",
+     *			            default="Аксессуары"
+     *                 ),
+     *                 @OA\Property(
+     *                      description="описание",
+     *                      property="description",
+     *                      type="string",
+     *			            default="Описание продукта"
+     *                 ),    
+     *                 @OA\Property(
+     *                      description="изображение",
+     *                      property="image",
+     *                      type="file",
+     *                 ),
+     *                 @OA\Property(
+     *                      description="цена",
+     *                      property="price",
+     *                      type="number",
+     *			            default=100000
+     *                 ),
+     *                 @OA\Property(
+     *                      description="в наличии",
+     *                      property="available",
+     *                      type="boolean",
+     *                 )
+     * ))),      
      * )     
      * )     
      */
