@@ -47,7 +47,6 @@ Route::group([
     Route::delete('/{id}', [CategoryController::class, 'destroy']);
 });
 
-
 Route::group([
     'prefix' => 'shoppingCart',
     //'middleware' => ['auth:sanctum']
