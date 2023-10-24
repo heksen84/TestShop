@@ -40,6 +40,7 @@ class CategoryController extends Controller
      *                      description="id категории",
      *                      property="category_id",
      *                      type="number",
+     *			            default=1
      *                 ),
      *                 @OA\Property(
      *                      description="название продукта",
@@ -51,7 +52,7 @@ class CategoryController extends Controller
      *                      description="описание",
      *                      property="description",
      *                      type="string",
-     *			            default=""
+     *			            default="Описание продукта"
      *                 ),    
      *                 @OA\Property(
      *                      description="изображение",
@@ -62,6 +63,7 @@ class CategoryController extends Controller
      *                      description="цена",
      *                      property="price",
      *                      type="number",
+     *			            default=100000
      *                 ),
      *                 @OA\Property(
      *                      description="в наличии",
@@ -75,7 +77,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->name;
+        return $request->all();
     }
 
     /**

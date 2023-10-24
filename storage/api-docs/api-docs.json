@@ -112,7 +112,8 @@
                                 "properties": {
                                     "category_id": {
                                         "description": "id категории",
-                                        "type": "number"
+                                        "type": "number",
+                                        "default": 1
                                     },
                                     "name": {
                                         "description": "название продукта",
@@ -122,7 +123,7 @@
                                     "description": {
                                         "description": "описание",
                                         "type": "string",
-                                        "default": ""
+                                        "default": "Описание продукта"
                                     },
                                     "image": {
                                         "description": "изображение",
@@ -130,7 +131,8 @@
                                     },
                                     "price": {
                                         "description": "цена",
-                                        "type": "number"
+                                        "type": "number",
+                                        "default": 100000
                                     },
                                     "available": {
                                         "description": "в наличии",
