@@ -81,7 +81,7 @@ class CategoryController extends Controller
      *     @OA\Response(response=200, description="Ресурс удален", @OA\JsonContent()),     
      * )
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
         //
     }
