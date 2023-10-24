@@ -103,40 +103,17 @@
                 "tags": [
                     "Категории"
                 ],
-                "summary": "Создать категорию",
+                "summary": "Сохранить категорию",
                 "operationId": "de40ad04180a48262a05cf249f785ab3",
                 "requestBody": {
                     "content": {
                         "multipart/form-data": {
                             "schema": {
                                 "properties": {
-                                    "category_id": {
-                                        "description": "id категории",
-                                        "type": "number",
-                                        "default": 1
-                                    },
                                     "name": {
-                                        "description": "название продукта",
+                                        "description": "название категории",
                                         "type": "string",
                                         "default": "Аксессуары"
-                                    },
-                                    "description": {
-                                        "description": "описание",
-                                        "type": "string",
-                                        "default": "Описание продукта"
-                                    },
-                                    "image": {
-                                        "description": "изображение",
-                                        "type": "file"
-                                    },
-                                    "price": {
-                                        "description": "цена",
-                                        "type": "number",
-                                        "default": 100000
-                                    },
-                                    "available": {
-                                        "description": "в наличии",
-                                        "type": "boolean"
                                     }
                                 },
                                 "type": "object"

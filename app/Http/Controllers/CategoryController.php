@@ -25,46 +25,18 @@ class CategoryController extends Controller
      * @OA\Post(
      *     path="/api/category",
      *     tags={"Категории"},
-     *     summary="Создать категорию", 
+     *     summary="Сохранить категорию", 
      *     security={ {"sanctum": {} }},         
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="multipart/form-data",
      *             @OA\Schema(
      *                 @OA\Property(
-     *                      description="id категории",
-     *                      property="category_id",
-     *                      type="number",
-     *			            default=1
-     *                 ),
-     *                 @OA\Property(
-     *                      description="название продукта",
+     *                      description="название категории",
      *                      property="name",
      *                      type="string",
      *			            default="Аксессуары"
-     *                 ),
-     *                 @OA\Property(
-     *                      description="описание",
-     *                      property="description",
-     *                      type="string",
-     *			            default="Описание продукта"
-     *                 ),    
-     *                 @OA\Property(
-     *                      description="изображение",
-     *                      property="image",
-     *                      type="file",
-     *                 ),
-     *                 @OA\Property(
-     *                      description="цена",
-     *                      property="price",
-     *                      type="number",
-     *			            default=100000
-     *                 ),
-     *                 @OA\Property(
-     *                      description="в наличии",
-     *                      property="available",
-     *                      type="boolean",
-     *                 )
+     *                 )    
      * ))),
      *     @OA\Response(response=201, description="Ресурс создан", @OA\JsonContent()),     
      * )     
@@ -72,6 +44,7 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
+        
         if (!$request->validated())
             return response()->json($request->errors()->all());
 
