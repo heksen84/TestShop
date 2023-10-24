@@ -73,33 +73,11 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         return Category::create($request->all());
-    }
-
-    /**
-     * @OA\Get(
-     *     path="/api/category/{id}",
-     *     tags={"Категории"},
-     *     security={ {"sanctum": {} }},     
-     *     summary="Получить категорию",
-     *     @OA\Parameter(
-     *         name="id",
-     *         in="query",
-     *         description="id упражнения",
-     *         required=true,
-     *         explode=true,
-     *         @OA\Schema(
-     *             type="integer",
-     *             minimum=0,
-     *             default=1
-     *         )
-     *     ),
-     *     @OA\Response(response="200", description="Ресурс получен")
-     * )
-     */
+    }   
 
     /**
      * @OA\Delete(
-     *     path="/api/category",
+     *     path="/api/category/{id}",
      *     tags={"Категории"},
      *     security={ {"sanctum": {} }},     
      *     summary="Удалить категорию",
@@ -107,7 +85,7 @@ class CategoryController extends Controller
      *         name="id",
      *         in="path",
      *         required=true,
-     *         description="id упражнения",
+     *         description="id категории",
      *         @OA\Schema(
      *             type="integer",
      *             minimum=0,

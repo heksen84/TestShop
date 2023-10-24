@@ -43,8 +43,8 @@ Route::group([
     'middleware' => ['auth:sanctum']
 ], function () {
     Route::get('', [CategoryController::class, 'index']);
-    Route::post('', [CategoryController::class, 'add']);
-    Route::delete('/{id}', [CategoryController::class, 'delete']);
+    Route::post('', [CategoryController::class, 'store']);
+    Route::delete('/{id}', [CategoryController::class, 'destroy']);
 });
 
 
@@ -53,6 +53,6 @@ Route::group([
     'middleware' => ['auth:sanctum']
 ], function () {
     Route::get('', [ShoppingCartController::class, 'index']);
-    Route::post('', [ShoppingCartController::class, 'add']);
-    Route::delete('/{id}', [ShoppingCartController::class, 'delete']);
+    Route::post('', [ShoppingCartController::class, 'store']);
+    Route::delete('/{id}', [ShoppingCartController::class, 'destroy']);
 });

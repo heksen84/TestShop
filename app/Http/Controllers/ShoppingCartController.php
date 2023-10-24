@@ -42,7 +42,7 @@ class ShoppingCartController extends Controller
      * )     
      * )
      */
-    public function add(ShoppingCardRequest $request)
+    public function store(ShoppingCardRequest $request)
     {
 
         if (!$request->validated())
@@ -73,7 +73,7 @@ class ShoppingCartController extends Controller
      *     @OA\Response(response=200, description="Ресурс удален", @OA\JsonContent()),     
      * )
      */
-    public function delete($id)
+    public function destroy($id)
     {
         $shoppingCart = ShoppingCart::where("product_id", $id);
         $shoppingCart->firstOrFail();
