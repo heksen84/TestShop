@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -71,10 +72,13 @@ class ProductController extends Controller
      * )     
      * )
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
+
+        if (!$request->validated())
+            return response()->json($request->errors()->all());
+
         $data = $request->all();
-        $data['available'] = $request->get("available") === "true" ? 1 : 0;
         $data['image'] = url('') . '/' . $request->image->store('images', 'public');
 
         return Product::create($data);

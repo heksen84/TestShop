@@ -11,7 +11,7 @@ class ProductRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,24 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'category_id' => 'integer|min:0',
+            'name' => 'string',
+            'description' => 'string',
+            'image' => 'file|mimes:jpeg,png,jpg',
+            'price' => 'integer|min:0',
+            'available' => 'boolean'
         ];
+    }
+
+    /**
+     * Prepare inputs for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'available' => $this->available === 'true' ? 1 : 0
+        ]);
     }
 }
