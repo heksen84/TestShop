@@ -13,7 +13,7 @@
 <li>8. exit</li>
 <li>9. <a href="http://localhost/api/documentation">перейти по ссылке</a> или открыть адрес http://localhost/api/documentation</li>
 
-<a href="http://94.103.85.28/api/documentation"Пример работы</a>
+<a href="http://94.103.85.28/api/documentation">Пример работы</a>
 
 <h2>Задание</h2>
 <p>Задача сделать интернет магазин  (только Back-end часть )
