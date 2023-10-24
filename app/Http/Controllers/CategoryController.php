@@ -39,7 +39,7 @@ class CategoryController extends Controller
      *                 ),
      *                 @OA\Property(
      *                      description="массив id категорий",
-     *                      property="subcategory_ids",
+     *                      property="sub_categories",
      *                      type="array",
      *                      @OA\Items(type="number", example={1,2,3,4})
      *                 ),     
@@ -53,6 +53,9 @@ class CategoryController extends Controller
 
         if (!$request->validated())
             return response()->json($request->errors()->all());
+
+        foreach ($request->get('sub_categories') as $id) {
+        }
 
         return Category::create($request->all());
     }

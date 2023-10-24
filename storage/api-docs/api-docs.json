@@ -115,7 +115,7 @@
                                         "type": "string",
                                         "default": "Аксессуары"
                                     },
-                                    "subcategory_ids": {
+                                    "sub_categories": {
                                         "description": "массив id категорий",
                                         "type": "array",
                                         "items": {
