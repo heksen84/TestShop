@@ -18,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return Product::all();
     }
 
     /**
@@ -80,7 +80,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['available'] = $request->get("available") === "true" ? 1 : 0;
+
+        return Product::create($data);
     }
 
     /**
