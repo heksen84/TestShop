@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ShoppingCart;
 use Illuminate\Http\Request;
+use App\Http\Requests\ShoppingCardRequest;
 
 class ShoppingCartController extends Controller
 {
@@ -42,9 +43,14 @@ class ShoppingCartController extends Controller
      * )     
      * )
      */
-    public function add(Request $request)
+    public function add(ShoppingCardRequest $request)
     {
+
+        if (!$request->validated())
+            return response()->json($request->errors()->all());
+
         ShoppingCart::create($request->all());
+
         return response()->json(['message' => 'Продукт добавлен в корзину']);
     }
 

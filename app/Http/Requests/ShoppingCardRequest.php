@@ -11,7 +11,7 @@ class ShoppingCardRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,9 @@ class ShoppingCardRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        return
+            [
+                'product_id' => 'integer|min:0|unique:shopping_cart'
+            ];
     }
 }
