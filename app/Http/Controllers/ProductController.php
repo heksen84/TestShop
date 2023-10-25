@@ -168,10 +168,10 @@ class ProductController extends Controller
     public function update($id, ProductRequest $request)
     {
 
-        return $request->all();
-
         if (!$request->validated())
             return response()->json($request->errors()->all());
+
+        $data = $request->all();
 
         $categoryId = $request->get('category_id');
 
@@ -180,10 +180,11 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($id);
 
-        if (File::delete(public_path() . '/images/' . basename($product->image)))
-            $products['image'] = url('') . '/' . $request->image->store('images', 'public');
+        File::delete(public_path() . '/images/' . basename($product->image));
 
-        $product->update($request->all());
+        $data['image'] = url('') . '/' . $request->image->store('images', 'public');
+        
+        $product->update($data);
 
         return $product;
     }
