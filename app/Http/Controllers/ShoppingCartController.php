@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ShoppingCart;
+use App\Models\Product;
 use App\Http\Requests\ShoppingCardRequest;
 
 class ShoppingCartController extends Controller
@@ -47,6 +48,9 @@ class ShoppingCartController extends Controller
 
         if (!$request->validated())
             return response()->json($request->errors()->all());
+	
+	if (!Product::find($request->get('product_id')))
+	        return response()->json(['message' => 'Продукт не найден']);
 
         ShoppingCart::create($request->all());
 
@@ -75,6 +79,7 @@ class ShoppingCartController extends Controller
      */
     public function destroy($id)
     {
+
         $shoppingCart = ShoppingCart::where("product_id", $id);
         $shoppingCart->firstOrFail();
         $shoppingCart->delete();

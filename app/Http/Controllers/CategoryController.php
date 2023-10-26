@@ -93,6 +93,6 @@ class CategoryController extends Controller
         Category::findOrFail($id)->delete();
         SubCategory::where("category_id", $id)->delete();
 
-        return response()->json(['message' => 'Категория удалёна']);
+        return response()->json(['message' => 'Категория удалена']);
     }
 }
