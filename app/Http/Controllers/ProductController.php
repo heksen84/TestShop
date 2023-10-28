@@ -17,12 +17,30 @@ class ProductController extends Controller
      *     tags={"Продукты"},
      *     security={ {"sanctum": {} }},     
      *     summary="Перечень продуктов",     
+     *     @OA\Parameter(
+     *         name="name",
+     *         in="query",
+     *         description="Фильтр по названию",
+     *         explode=true
+     *     ),
      *     @OA\Response(response="200", description="Success")
      * )
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Product::all();
+
+        try {
+
+            $product = Product::where('name', 'LIKE', '%' . $request->get('name') . '%');
+            return response()->json($product->paginate($request->get('product')));
+
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response([
+                'status' => false,
+                'error' => $e->getMessage()
+            ], 404);
+        }
+
     }
 
     /**
@@ -213,36 +231,5 @@ class ProductController extends Controller
         $product->delete();
 
         return response()->json(['message' => 'Продукт удалён']);
-    }
-
-    /**
-     * @OA\Get(
-     *     path="/api/product/search",
-     *     tags={"Продукты"},
-     *     summary="Найти продукт", 
-     * 	   security={ {"sanctum": {} }},
-     *     @OA\Parameter(
-     *         name="name",
-     *         in="query",
-     *         description="Название",
-     *         explode=true
-     *     ),
-     *     @OA\Response(response=200, description="success", @OA\JsonContent()),
-     * )
-     */
-    public function search(Request $request)
-    {
-
-        try {
-
-            $product = Product::where('name', 'LIKE', '%' . $request->get('name') . '%');
-            return response()->json($product->paginate($request->get('product')));
-
-        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return response([
-                'status' => false,
-                'error' => $e->getMessage()
-            ], 404);
-        }
     }
 }

@@ -44,7 +44,6 @@ Route::group([
     'middleware' => ['auth:sanctum']
 ], function () {
     Route::get('/', [ProductController::class, 'index']);
-    Route::get('/search', [ProductController::class, 'search']);
     Route::get('/{id}', [ProductController::class, 'show']);
     Route::post('/', [ProductController::class, 'store']);
     Route::post('/{id}', [ProductController::class, 'update']);

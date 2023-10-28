@@ -199,6 +199,14 @@
                 ],
                 "summary": "Перечень продуктов",
                 "operationId": "5cc57bec35d0f2045983cc8dcd00eccd",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Фильтр по названию",
+                        "explode": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Success"
