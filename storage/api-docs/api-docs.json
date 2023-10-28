@@ -386,6 +386,38 @@
                 ]
             }
         },
+        "/api/product/search": {
+            "get": {
+                "tags": [
+                    "Продукты"
+                ],
+                "summary": "Найти продукт",
+                "operationId": "e9cc07762138cdc8d6fcbb45d4d811cc",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Название",
+                        "explode": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
         "/api/shoppingCart": {
             "get": {
                 "tags": [
